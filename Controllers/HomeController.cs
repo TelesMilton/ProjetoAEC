@@ -8,7 +8,8 @@ using Microsoft.Extensions.Logging;
 
 namespace ProjetoAEC.Controllers
 {
-    [ApiController]  
+    [ApiController] 
+    [Route("/")] 
     public class HomeController : ControllerBase
     {
        

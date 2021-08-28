@@ -60,6 +60,7 @@ namespace ProjetoAEC.Controllers
             {
                 try
                 {
+
                     _context.Update(profissao);
                     await _context.SaveChangesAsync();
                 }

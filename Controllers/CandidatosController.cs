@@ -33,7 +33,7 @@ namespace ProjetoAEC.Controllers
         [HttpPost]
         [Route("/candidatos")]
         [Route("/candidates")]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email,ProfissaoId")] Candidato candidato)
+        public async Task<IActionResult> Create([Bind("Id,Nome,cpf,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email,ProfissaoId")] Candidato candidato)
         {
         
                 _context.Add(candidato);
@@ -42,10 +42,10 @@ namespace ProjetoAEC.Controllers
                 
         }
 
-        [HttpPut]
+               [HttpPut]
         [Route("/candidatos/{id}")]
         [Route("/candidates/{id}")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email,ProfissaoId")] Candidato candidato)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,cpf,Nascimento,Cep,Logradouro,Numero,Bairro,Cidade,UF,Telefone,Email,ProfissaoId")] Candidato candidato)
         {
             if (id != candidato.Id)
             {
@@ -55,6 +55,7 @@ namespace ProjetoAEC.Controllers
             {
                 try
                 {
+                    
                     _context.Update(candidato);
                     await _context.SaveChangesAsync();
                 }
@@ -72,7 +73,6 @@ namespace ProjetoAEC.Controllers
                 return StatusCode(200, candidato);
             }
         }
-
      
 
         [HttpGet]
